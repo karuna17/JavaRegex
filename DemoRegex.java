@@ -26,8 +26,15 @@ public class DemoRegex {
 		
 		System.out.println("Enter your pin code to restrict alphabet");
 		String pin1 = sc.next();
-		String regex1=",.^'[a-zA-Z]'^[1-9]{1}[0-9]{2}\\\\s{0,1}[0-9]{3}$";
+		String regex1=",.^'[a-zA-Z]'^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$";
 		Pattern pinPattern1 = Pattern.compile(regex1);
 		d.validatePin(pin1, pinPattern1);
+		
+		System.out.println("Enter your pin code");
+		String pin2 = sc.next();
+		String regex2=",.^'[a-zA-Z]'^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3},.^'[a-zA-Z]'$";
+		Pattern pinPattern2 = Pattern.compile(regex2);
+		d.validatePin(pin2, pinPattern2);
+
 	}
 }
