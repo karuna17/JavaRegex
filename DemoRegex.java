@@ -35,6 +35,8 @@ public class DemoRegex {
 		String regex2=",.^'[a-zA-Z]'^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3},.^'[a-zA-Z]'$";
 		Pattern pinPattern2 = Pattern.compile(regex2);
 		d.validatePin(pin2, pinPattern2);
+		
+		
 
 	}
 }

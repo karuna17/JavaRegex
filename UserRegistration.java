@@ -4,46 +4,45 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+	public boolean emailTest(String email){
+		String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";	
+		Pattern pattern = Pattern.compile(emailRegex);
+		Matcher m = pattern.matcher(email);
+		System.out.println("Is this email valid? "+m.matches());
+		return m.matches();
+	}
+
+	public boolean passTest(String pass) {
+		String passRegex = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";	
+		Pattern pattern = Pattern.compile(passRegex);
+		Matcher m = pattern.matcher(pass);
+		System.out.println("Is this password valid? "+m.matches());
+		return m.matches();		
+	}
+	
+	public boolean mobTest(String mobile) {	
+		String mobRegex = "(0/91)?[7-9][0-9]{9}";
+		Pattern pattern = Pattern.compile(mobRegex);
+		Matcher m = pattern.matcher(mobile);
+		System.out.println("Is this mobile valid? "+m.matches());
+		return m.matches();			
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		UserRegistration u = new UserRegistration();
 		
-		System.out.println("Enter your name: ");
-		String name = sc.nextLine();
-		
-		System.out.println("Enter your email id: ");
+		System.out.println("Enter your email");
 		String email = sc.next();
+		u.emailTest(email);
 		
-		String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";	
-		Pattern emailPattern=Pattern.compile(emailRegex);
-		Matcher emailMach=emailPattern.matcher(email);
-		if(emailMach.matches()) {
-			System.out.println("Given email id is valid");
-		} else {
-			System.out.println("Given email id is not valid");
-		}
-		
-		System.out.println("Enter your password: ");
+		System.out.println("Enter your password");
 		String password = sc.next();
+		u.emailTest(password);
 		
-		String passRegex = "^[a-zA-Z0-9]";	
-		Pattern passPattern=Pattern.compile(passRegex);
-		Matcher passMach=passPattern.matcher(password);
-		if(passMach.matches()) {
-			System.out.println("Password is valid");
-		} else {
-			System.out.println("Password is not valid");
-		}
-		System.out.println("Enter your mobile number: ");
+		System.out.println("Enter your mobile number");
 		String mobile = sc.next();
-		String mobRegx="^[0-9]";
-		Pattern mobPattern=Pattern.compile(mobRegx);
-		Matcher mobMach=mobPattern.matcher(mobile);
-		if(mobMach.matches()) {
-			System.out.println("Given mobile number is valid");
-		} else {
-			System.out.println("Given mobile number is not valid");
-		}
-		
+		u.emailTest(mobile);
 	}
 
 }
